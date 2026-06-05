@@ -11,35 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            background: '#111d2e', // Deep Obsidian Dark
-            card: '#15243b',       // Lighter obsidian for cards
-            border: '#22354f',     // Custom border
-            primary: {
-              DEFAULT: '#f3c614',  // Signature Amber Gold
-              foreground: '#111d2e'
-            },
-            muted: {
-              DEFAULT: '#1b2c45',
-              foreground: '#94a3b8'
-            }
-          },
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="output.css">
   
   <style>
     html {
@@ -601,13 +573,13 @@
             </p>
             <div class="flex items-center gap-4">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" class="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-colors">
-                <i data-lucide="instagram" class="w-5 h-5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
               </a>
               <a href="https://facebook.com" target="_blank" rel="noreferrer" class="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-colors">
-                <i data-lucide="facebook" class="w-5 h-5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-colors">
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
             </div>
           </div>
@@ -791,12 +763,19 @@
           }),
         });
 
-        if (!response.ok) throw new Error('Email send failed');
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Received non-JSON response. Vercel Authentication might be blocking the API request.");
+        }
+
+        const data = await response.json();
+        if (!response.ok || !data.ok) throw new Error(data.error || 'Email send failed');
 
         alert("Message sent successfully! TechKhit will contact you soon.");
         document.getElementById('contact-form').reset();
       } catch (error) {
-        alert("Sorry, we could not send your message right now. Please try again later.");
+        console.error("Email error:", error);
+        alert("Sorry, we could not send your message right now: " + error.message);
       } finally {
         btn.disabled = false;
         btn.innerHTML = originalText;

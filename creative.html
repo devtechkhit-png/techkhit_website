@@ -5,27 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative Studio & AI Video Production | TechKhit Myanmar</title>
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Tailwind CSS Config for Custom Colors & Animations -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#E2B842', /* Burmese Amber Gold */
-            background: '#0B1120', /* Deep Obsidian Blue */
-            card: '#152035', /* Dark Card Slate */
-            border: '#1F2E4D', /* Deep Blue Border */
-          },
-          fontFamily: {
-            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-          },
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="output.css">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -501,15 +481,21 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             page: 'Creative Studio',
-            name: form.querySelector('#name').value.trim(),
-            email: form.querySelector('#email').value.trim(),
-            phone: form.querySelector('#phone').value.trim(),
-            focus: form.querySelector('#focus').value,
-            message: form.querySelector('#message').value.trim(),
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            phone: document.getElementById('phone').value.trim(),
+            focus: document.getElementById('focus').value,
+            message: document.getElementById('message').value.trim(),
           }),
         });
 
-        if (!response.ok) throw new Error('Email send failed');
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Received non-JSON response. Vercel Authentication might be blocking the API request.");
+        }
+
+        const data = await response.json();
+        if (!response.ok || !data.ok) throw new Error(data.error || 'Email send failed');
 
         form.classList.add('hidden');
         successDiv.classList.remove('hidden');
@@ -518,7 +504,8 @@
           behavior: 'smooth'
         });
       } catch (error) {
-        alert('Sorry, we could not send your request right now. Please try again later.');
+        console.error("Email error:", error);
+        alert('Sorry, we could not send your request right now: ' + error.message);
         btn.disabled = false;
         btn.innerHTML = originalText;
         lucide.createIcons();
