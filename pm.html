@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management & Framework Governance | TechKhit Myanmar</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind CSS Config for Custom Colors & Animations -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E2B842', /* Burmese Amber Gold */
+            background: '#0B1120', /* Deep Obsidian Blue */
+            card: '#152035', /* Dark Card Slate */
+            border: '#1F2E4D', /* Deep Blue Border */
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B1120;
+    }
+    .glow-card {
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .glow-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(to bottom right, rgba(226, 184, 66, 0.2), transparent, rgba(31, 46, 77, 0.5));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .glow-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(226, 184, 66, 0.1);
+    }
+    .btn-tactile {
+      transition: all 0.2s ease-out;
+    }
+    .btn-tactile:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="text-slate-100 overflow-x-hidden">
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center font-extrabold text-background shadow-lg shadow-primary/20 group-hover:scale-105 transition-all">
+          TK
+        </div>
+        <div>
+          <span class="text-lg font-black tracking-wider text-white">TECH<span class="text-primary">KHIT</span></span>
+          <span class="block text-[10px] text-slate-400 font-bold tracking-widest uppercase">Myanmar • Creative & Tech</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="text-slate-300 hover:text-primary text-sm font-semibold flex items-center gap-2 transition-all">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+        </a>
+        <a href="#contact" class="px-5 py-2.5 bg-primary text-background hover:bg-primary/90 text-xs font-bold rounded-xl btn-tactile transition-all shadow-lg shadow-primary/10">
+          Book PM Audit
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section / Pitch Header -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <!-- Gradient Glow Backgrounds -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-10 right-10 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-extrabold tracking-wider uppercase mb-2">
+        <i data-lucide="activity" class="w-3.5 h-3.5 animate-pulse"></i> Framework Governance & PMO Operations
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.15] tracking-tight">
+        Ditch the Operational Chaos. <br class="hidden md:inline">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-300">Run Your Projects with Flawless Predictability.</span>
+      </h1>
+      <p class="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        We build, launch, and govern high-performance Project Management Offices (PMO) and Odoo frameworks to align your teams and secure predictable delivery velocity.
+      </p>
+      <div class="pt-4 flex flex-wrap justify-center gap-4">
+        <a href="#contact" class="px-8 py-4 bg-primary text-background hover:bg-primary/90 text-sm font-bold rounded-xl btn-tactile transition-all shadow-xl shadow-primary/15 flex items-center gap-2">
+          Claim Your Free PM Audit <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#solutions" class="px-8 py-4 bg-card border border-border text-white hover:bg-border/30 text-sm font-bold rounded-xl btn-tactile transition-all flex items-center gap-2">
+          Explore Frameworks <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem vs Solution Section -->
+  <section id="problems" class="py-20 bg-background border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Why Projects Fail to Deliver</h2>
+        <p class="text-slate-400">Vague expectations, communication gaps, and lack of structured governance turn strategic goals into expensive delays.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Problems Column -->
+        <div class="glow-card bg-card/40 border border-red-500/10 rounded-2xl p-8 space-y-6">
+          <div class="flex items-center gap-3 text-red-400">
+            <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center"><i data-lucide="alert-triangle" class="w-5 h-5"></i></div>
+            <h3 class="text-xl font-bold text-white">The Operational Friction</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Disconnected Team Workspaces</h4>
+                <p class="text-xs text-slate-400 mt-1">Files scattered across private chats and unorganized drives cause massive communication gaps and lost project assets.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Vague Task & Pipeline Tracking</h4>
+                <p class="text-xs text-slate-400 mt-1">Teams operate without clear Kanban pipelines or timeline dependencies, leading to missed deadlines and delayed releases.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Unmonitored SOP Compliance</h4>
+                <p class="text-xs text-slate-400 mt-1">Without dedicated PMO governance, standard operating procedures are ignored, leading to inconsistent operational quality.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions Column -->
+        <div class="glow-card bg-card/40 border border-primary/20 rounded-2xl p-8 space-y-6">
+          <div class="flex items-center gap-3 text-primary">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+            <h3 class="text-xl font-bold text-white">The Governance Blueprint</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Digital PMO & Workspace Architecture</h4>
+                <p class="text-xs text-slate-400 mt-1">We establish enterprise-grade Google Workspace structures with permission trees to centralize knowledge cleanly.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Pipeline Modeling & Kanban Board Spaces</h4>
+                <p class="text-xs text-slate-400 mt-1">We map operational workflows into clear interactive tracking pipelines with status constraints and milestones.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Outsourced PMO & Active Monitoring</h4>
+                <p class="text-xs text-slate-400 mt-1">Our dedicated PMO team monitors compliance, facilitates check-ins, and delivers monthly progress insights to executives.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid (Content from pasted_content_2.txt) -->
+  <section id="solutions" class="py-20 bg-background/50 border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Our Frameworks</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Structured PMO & Governance Services</h2>
+        <p class="text-slate-400">Calibrated systems designed to turn strategic business targets into highly predictable team execution.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 1. Digital PMO & Workspace Architecture -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="folder-kanban" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Digital PMO & Workspace</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              We establish clean digital workspaces to centralize project communications, structure knowledge assets, and align delivery teams.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80" alt="Workspace Architecture" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Google Workspace Setup:</strong> Logical shared drive architecture and strict folder standards.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Access Permission Trees:</strong> Designing clear role hierarchies, folder access, and data visibility rules.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Platform Onboarding:</strong> Hands-on training modules to guide delivery teams through new workspaces.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Workspace Sync</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 2. Framework Workflow & Pipeline Modeling -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="git-commit" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Workflow & Pipeline Modeling</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              We map abstract operational processes into highly structured tracking pipelines for flawless day-to-day visibility.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?auto=format&fit=crop&w=400&q=80" alt="Workflow Modeling" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Project Workflow Design:</strong> Deep operational mapping to visually structure project lifecycles.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Task & Kanban Architecture:</strong> Custom interactive project board spaces, statuses, and task ownership.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Timeline & Milestones:</strong> Explicit target roadmaps detailing critical paths and dependencies.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Process Pipelines</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 3. Performance Framework Implementation -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Performance Frameworks</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Turn vague execution targets into explicit, quantifiable, and transparent tracking modules across all divisions.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Performance Frameworks" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>KPI Metrics Creation:</strong> Departmental and personal indicators aligned with primary strategic targets.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Reporting Customization:</strong> Standardized data formats, progress tracking templates, and cadence layouts.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">KPI Command</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 4. Odoo ERP Management Core Setup -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="layout" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Odoo ERP Core Setup</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Smooth coordination and structural launch of central resource enterprise frameworks for cross-mapping.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Odoo ERP Core" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Odoo Initial Architecture:</strong> Deploying parameters, database setups, and process mapping.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>ERP Training Coordination:</strong> Operational documentation to maximize user proficiency across system modules.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">ERP Integration</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 5. TExM Governance & PMO Operations -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">TExM Governance & PMO</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Outsource your active project management office workflows to keep teams continuously synchronized and moving toward quarterly goals.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" alt="PMO Operations" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>PMO Cadence Coordination:</strong> Weekly PMO check-ins, action alignment, and obstacle unblocking.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Continuous Performance Tracking:</strong> Tracking active pipeline tasks, team velocity, and KPIs.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Executive Management Reporting:</strong> Monthly progress digests and performance trend insights.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Outsourced PMO</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 6. Departmental Operations Support -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="sliders" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Departmental Operations</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Direct execution alignment for specific functional groups to prevent the formation of departmental silos.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80" alt="Departmental Operations" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Operational Pipeline Maintenance:</strong> Active oversight of fast-moving backlogs and task prioritizations.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>SOP Compliance Monitoring:</strong> Reviews of team output against standard operating procedures.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Silo Mitigation</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Section 7: Scheduled Evaluation & Onboarding Audits -->
+      <div class="mt-12 p-8 bg-card border border-border rounded-2xl grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-4 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Scheduled Evaluation & Onboarding Audits</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Periodic checkpoints designed to keep your operational engine calibrated and compliant over long business periods.
+          </p>
+        </div>
+        <div class="md:col-span-8 grid sm:grid-cols-3 gap-4">
+          <div class="p-4 bg-background/50 border border-border/50 rounded-xl">
+            <h4 class="text-xs font-bold text-primary mb-1">Quarterly TExM Audits</h4>
+            <p class="text-[11px] text-slate-400">Multi-day verification cycles, output audits, gap analyses, and corrective roadmaps.</p>
+          </div>
+          <div class="p-4 bg-background/50 border border-border/50 rounded-xl">
+            <h4 class="text-xs font-bold text-primary mb-1">New Hire Onboarding</h4>
+            <p class="text-[11px] text-slate-400">On-demand professional orientation covering SOPs, KPIs, and PMO navigation.</p>
+          </div>
+          <div class="p-4 bg-background/50 border border-border/50 rounded-xl">
+            <h4 class="text-xs font-bold text-primary mb-1">Annual Compliance</h4>
+            <p class="text-[11px] text-slate-400">Year-end scorecards, ISO-aligned review checkpoints, and strategic dashboard updates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI / Benefits Section -->
+  <section class="py-20 bg-background border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Strategic Impact</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">The Benefits of Framework Governance</h2>
+        <p class="text-slate-400">How structured PMO systems directly translate into corporate efficiency, team velocity, and alignment.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Predictable Team Velocity</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Standardizing task management and pipeline boards ensures projects move smoothly from backlog to delivery with zero confusion.
+          </p>
+        </div>
+
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="eye" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Flawless Executive Visibility</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Standardized data formats, periodic executive check-ins, and KPI scorecards provide total operational clarity across all branches.
+          </p>
+        </div>
+
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">SOP & Quality Compliance</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Active PMO compliance monitoring guarantees that your workforce maintains peak operational quality and standard compliance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact Form / Pitch CTA -->
+  <section id="contact" class="py-20 bg-background/50 border-t border-border/30 relative">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Let's Talk Governance</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Claim Your Free PM & Framework Audit</h2>
+        <p class="text-slate-400">Our PMO leads will review your team bottlenecks, pipeline friction, and Odoo ERP roadmap opportunities at zero cost.</p>
+      </div>
+
+      <div class="glow-card bg-card border border-border rounded-2xl p-8 md:p-12">
+        <form id="pm-contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Your Name</label>
+              <input type="text" id="name" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., U Mg Mg">
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Corporate Email</label>
+              <input type="email" id="email" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., company@domain.com">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Phone Number / Telegram</label>
+              <input type="text" id="phone" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., +95 9 ...">
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Operational Focus</label>
+              <select id="focus" class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all">
+                <option value="workspace">Digital PMO & Workspace Architecture</option>
+                <option value="pipelines">Workflow & Pipeline Modeling</option>
+                <option value="kpi">Performance Frameworks & KPIs</option>
+                <option value="odoo">Odoo ERP Core Setup & Training</option>
+                <option value="governance">TExM Outsourced PMO Governance</option>
+                <option value="audits">Compliance & Corrective Audits</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Describe Your Team's Core Bottleneck</label>
+            <textarea id="message" rows="4" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all resize-none" placeholder="What pipeline bottlenecks, SOP gaps, or workspace unalignment are you currently facing?"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-primary text-background hover:bg-primary/90 text-sm font-extrabold rounded-xl btn-tactile transition-all shadow-xl shadow-primary/10 flex items-center justify-center gap-2">
+            Submit Audit Request <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+        <div id="form-success" class="hidden text-center py-8 space-y-4">
+          <div class="w-16 h-16 bg-primary/10 border border-primary/20 text-primary rounded-full flex items-center justify-center mx-auto">
+            <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white">Audit Request Received!</h3>
+          <p class="text-sm text-slate-300 max-w-md mx-auto">
+            Our PMO Framework Lead will review your bottlenecks and contact you within 24 hours to schedule your free consultation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-background border-t border-border/30">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center font-bold text-primary">TK</div>
+        <span class="text-sm text-slate-400">© 2026 TechKhit Myanmar. All Rights Reserved.</span>
+      </div>
+      <div class="flex gap-6 text-xs text-slate-400">
+        <a href="index.html" class="hover:text-primary transition-all">Home</a>
+        <a href="index.html#about" class="hover:text-primary transition-all">About Us</a>
+        <a href="index.html#services" class="hover:text-primary transition-all">Services</a>
+        <a href="index.html#portfolio" class="hover:text-primary transition-all">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Script for Form and Icons -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Handle Form Submission
+    const form = document.getElementById('pm-contact-form');
+    const successDiv = document.getElementById('form-success');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Processing Request...';
+      lucide.createIcons();
+
+      setTimeout(() => {
+        form.classList.add('hidden');
+        successDiv.classList.remove('hidden');
+        window.scrollTo({
+          top: document.getElementById('contact').offsetTop + 100,
+          behavior: 'smooth'
+        });
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

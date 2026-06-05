@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Studio & AI Video Production | TechKhit Myanmar</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind CSS Config for Custom Colors & Animations -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E2B842', /* Burmese Amber Gold */
+            background: '#0B1120', /* Deep Obsidian Blue */
+            card: '#152035', /* Dark Card Slate */
+            border: '#1F2E4D', /* Deep Blue Border */
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B1120;
+    }
+    .glow-card {
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .glow-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(to bottom right, rgba(226, 184, 66, 0.2), transparent, rgba(31, 46, 77, 0.5));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .glow-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(226, 184, 66, 0.1);
+    }
+    .btn-tactile {
+      transition: all 0.2s ease-out;
+    }
+    .btn-tactile:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="text-slate-100 overflow-x-hidden">
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center font-extrabold text-background shadow-lg shadow-primary/20 group-hover:scale-105 transition-all">
+          TK
+        </div>
+        <div>
+          <span class="text-lg font-black tracking-wider text-white">TECH<span class="text-primary">KHIT</span></span>
+          <span class="block text-[10px] text-slate-400 font-bold tracking-widest uppercase">Myanmar • Creative & Tech</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="text-slate-300 hover:text-primary text-sm font-semibold flex items-center gap-2 transition-all">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+        </a>
+        <a href="#contact" class="px-5 py-2.5 bg-primary text-background hover:bg-primary/90 text-xs font-bold rounded-xl btn-tactile transition-all shadow-lg shadow-primary/10">
+          Book Creative Audit
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section / Pitch Header -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <!-- Gradient Glow Backgrounds -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-10 right-10 w-[300px] h-[300px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-extrabold tracking-wider uppercase mb-2">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 animate-pulse"></i> Creative Studio & AI Video Production
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.15] tracking-tight">
+        Stop Blending In. <br class="hidden md:inline">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-300">Command Attention with Cinematic AI & 3D Design.</span>
+      </h1>
+      <p class="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        We blend high-end graphic design with cutting-edge AI video and multimedia production to tell your story with maximum visual impact and scale your brand across digital algorithms.
+      </p>
+      <div class="pt-4 flex flex-wrap justify-center gap-4">
+        <a href="#contact" class="px-8 py-4 bg-primary text-background hover:bg-primary/90 text-sm font-bold rounded-xl btn-tactile transition-all shadow-xl shadow-primary/15 flex items-center gap-2">
+          Start Your Creative Campaign <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#solutions" class="px-8 py-4 bg-card border border-border text-white hover:bg-border/30 text-sm font-bold rounded-xl btn-tactile transition-all flex items-center gap-2">
+          Explore Our Studio <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem vs Solution Section -->
+  <section id="problems" class="py-20 bg-background border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Why Brands Go Unnoticed</h2>
+        <p class="text-slate-400">Flat visuals, inconsistent posting, and failure to adapt to modern video algorithms cost businesses millions in lost reach.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Problems Column -->
+        <div class="glow-card bg-card/40 border border-red-500/10 rounded-2xl p-8 space-y-6">
+          <div class="flex items-center gap-3 text-red-400">
+            <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center"><i data-lucide="eye-off" class="w-5 h-5"></i></div>
+            <h3 class="text-xl font-bold text-white">The Content Bottleneck</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Invisible Static Assets</h4>
+                <p class="text-xs text-slate-400 mt-1">Basic flat graphics and uninspired product shots get lost instantly in fast-scrolling social media feeds.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Expensive Traditional Video</h4>
+                <p class="text-xs text-slate-400 mt-1">Full cinematic shoots are too slow and costly to keep up with the daily volume required by modern TikTok and Shorts algorithms.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Fragmented Brand Identity</h4>
+                <p class="text-xs text-slate-400 mt-1">Inconsistent character styles and disjointed visual guidelines confuse customers and dilute brand trust.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions Column -->
+        <div class="glow-card bg-card/40 border border-primary/20 rounded-2xl p-8 space-y-6">
+          <div class="flex items-center gap-3 text-primary">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><i data-lucide="video" class="w-5 h-5"></i></div>
+            <h3 class="text-xl font-bold text-white">The TechKhit Creative Engine</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Immersive 3D & Mascot Design</h4>
+                <p class="text-xs text-slate-400 mt-1">We build photorealistic 3D environments and custom rigged mascots to give your brand an unforgettable physical presence.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Hybrid AI Video Production</h4>
+                <p class="text-xs text-slate-400 mt-1">We blend live-action with advanced AI generation to produce premium cinematic videos at the speed of social media.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Scaled Omni-Channel Marketing</h4>
+                <p class="text-xs text-slate-400 mt-1">Our tiered marketing packages guarantee consistent, high-volume distribution across all major digital platforms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid (Content from pasted_content_3.txt) -->
+  <section id="solutions" class="py-20 bg-background/50 border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Our Studio Capabilities</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">High-Fidelity Visual Production</h2>
+        <p class="text-slate-400">From 3D product renders to viral AI short-form content, we engineer assets that convert.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 1. 3D Modeling & Space Design -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="box" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">3D Modeling & Space Design</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              We transform concepts into spatial realities and photorealistic assets using bleeding-edge 3D rendering engines.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=400&q=80" alt="3D Space Design" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>High-Fidelity Asset Creation:</strong> Texturing and photorealistic 4K rendering of architectural or product designs.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Virtual Event Design:</strong> Immersive 3D stage layouts, trade show booths, and full walk-through renders.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>3D Product R&D:</strong> Concept visualizations from CAD files with 360-degree rotation marketing videos.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Spatial Realities</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 2. Brand Identity & Character Design -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="smile" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Brand Identity & Character Design</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Give your brand a distinct visual persona across digital and physical touchpoints.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=400&q=80" alt="Brand Mascot Design" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Mascot Illustration:</strong> Custom high-fidelity 3D brand mascots with comprehensive turnaround sheets.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Premium Graphic Kits:</strong> Complete digital brand kits, social setups, and modernized corporate guidelines.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Distinct Personas</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 3. Advanced Animation & Video Production -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="clapperboard" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Advanced Animation & AI Video</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              High-converting video assets engineered using a hybrid mix of traditional cinema and AI directorial control.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=400&q=80" alt="AI Video Production" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>2D Motion Graphics:</strong> Script-to-screen storyboarding and bespoke character animations.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Hybrid AI Video:</strong> 60-second hero videos blending live-action with advanced AI cinematic visuals.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Bulk AI Campaigns:</strong> Scaled viral packs (10+ videos) with strict AI character consistency frameworks.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Cinematic Scale</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Digital Marketing & Content Management Tiers -->
+      <div class="mt-16">
+        <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
+          <div class="w-12 h-12 mx-auto rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="megaphone" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white">Digital Marketing & Content Management Tiers</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Structured monthly retainers designed to capture modern algorithms and dominate your industry footprint.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+          <!-- Tier 1 -->
+          <div class="p-6 bg-card border border-border rounded-2xl flex flex-col">
+            <h4 class="text-lg font-bold text-white">Tier 1: Brand Presence</h4>
+            <span class="inline-block px-2 py-1 bg-slate-800 text-slate-300 text-[10px] font-bold rounded mt-2 mb-4 w-fit uppercase tracking-wider">Starter</span>
+            <p class="text-xs text-slate-400 mb-4 flex-grow">Ideal for startups and localized small businesses seeking consistent visibility.</p>
+            <div class="space-y-3 pt-4 border-t border-border/50">
+              <div class="text-xs"><span class="text-primary font-bold">Scope:</span> 2 selected social channels.</div>
+              <div class="text-xs"><span class="text-primary font-bold">Deliverables:</span> 12 targeted graphic designs or basic AI posts per month.</div>
+              <div class="text-xs"><span class="text-primary font-bold">Growth:</span> Baseline ad campaign setup & performance reports.</div>
+            </div>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="p-6 bg-primary/10 border border-primary/30 rounded-2xl flex flex-col relative overflow-hidden shadow-[0_0_30px_-10px_rgba(226,184,66,0.3)]">
+            <div class="absolute top-0 right-0 bg-primary text-background text-[10px] font-black px-3 py-1 rounded-bl-lg uppercase tracking-wider">Most Popular</div>
+            <h4 class="text-lg font-bold text-white">Tier 2: AI-Motion Hybrid</h4>
+            <span class="inline-block px-2 py-1 bg-primary/20 text-primary text-[10px] font-bold rounded mt-2 mb-4 w-fit uppercase tracking-wider">Growth</span>
+            <p class="text-xs text-slate-300 mb-4 flex-grow">Ideal for scaling brands wanting to capture modern short-form video algorithms.</p>
+            <div class="space-y-3 pt-4 border-t border-primary/20">
+              <div class="text-xs"><span class="text-primary font-bold">Scope:</span> 3–4 social platforms + YouTube Shorts.</div>
+              <div class="text-xs"><span class="text-primary font-bold">Deliverables:</span> 20 content drops per month (static + motion).</div>
+              <div class="text-xs"><span class="text-primary font-bold">Growth:</span> 4 high-fidelity AI motion videos, multi-channel A/B testing, competitive analytics.</div>
+            </div>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="p-6 bg-card border border-border rounded-2xl flex flex-col">
+            <h4 class="text-lg font-bold text-white">Tier 3: Cinematic Prod.</h4>
+            <span class="inline-block px-2 py-1 bg-purple-500/20 text-purple-400 text-[10px] font-bold rounded mt-2 mb-4 w-fit uppercase tracking-wider">Authority</span>
+            <p class="text-xs text-slate-400 mb-4 flex-grow">Ideal for enterprises dominating their industry footprint with a global reach strategy.</p>
+            <div class="space-y-3 pt-4 border-t border-border/50">
+              <div class="text-xs"><span class="text-primary font-bold">Scope:</span> Omni-channel digital dominance.</div>
+              <div class="text-xs"><span class="text-primary font-bold">Deliverables:</span> Continuous daily distribution (30+ tailored posts/month).</div>
+              <div class="text-xs"><span class="text-primary font-bold">Growth:</span> 8+ premium cinematic AI videos, on-site studio crew sessions, advanced CRO.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI / Benefits Section -->
+  <section class="py-20 bg-background border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Strategic Impact</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">The Power of High-Fidelity Creative</h2>
+        <p class="text-slate-400">How our hybrid AI and 3D pipelines directly translate into audience capture and brand authority.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Algorithm Dominance</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            High-volume, visually stunning short-form AI video directly feeds the algorithms of TikTok and Shorts, capturing massive organic reach.
+          </p>
+        </div>
+
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="gem" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Premium Brand Perception</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Photorealistic 3D product renders and cinematic color grading instantly position your company as a high-end market leader.
+          </p>
+        </div>
+
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Scalable Consistency</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Our strict AI character consistency frameworks ensure your brand mascot or visual style remains flawless across hundreds of assets.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact Form / Pitch CTA -->
+  <section id="contact" class="py-20 bg-background/50 border-t border-border/30 relative">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Let's Build Your Vision</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Claim Your Free Creative Audit</h2>
+        <p class="text-slate-400">Our Creative Directors will review your current brand assets, video strategy, and social presence at zero cost.</p>
+      </div>
+
+      <div class="glow-card bg-card border border-border rounded-2xl p-8 md:p-12">
+        <form id="creative-contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Your Name</label>
+              <input type="text" id="name" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., U Mg Mg">
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Corporate Email</label>
+              <input type="email" id="email" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., company@domain.com">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Phone Number / Telegram</label>
+              <input type="text" id="phone" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., +95 9 ...">
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Creative Focus</label>
+              <select id="focus" class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all">
+                <option value="3d">3D Modeling & Space Design</option>
+                <option value="mascot">Brand Identity & Mascot Design</option>
+                <option value="ai_video">Hybrid AI Video Production</option>
+                <option value="tier1">Marketing Retainer: Tier 1 (Starter)</option>
+                <option value="tier2">Marketing Retainer: Tier 2 (Growth)</option>
+                <option value="tier3">Marketing Retainer: Tier 3 (Authority)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Describe Your Brand Vision</label>
+            <textarea id="message" rows="4" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all resize-none" placeholder="What kind of visuals, videos, or 3D assets are you looking to create for your campaign?"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-primary text-background hover:bg-primary/90 text-sm font-extrabold rounded-xl btn-tactile transition-all shadow-xl shadow-primary/10 flex items-center justify-center gap-2">
+            Submit Creative Request <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+        <div id="form-success" class="hidden text-center py-8 space-y-4">
+          <div class="w-16 h-16 bg-primary/10 border border-primary/20 text-primary rounded-full flex items-center justify-center mx-auto">
+            <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white">Creative Request Received!</h3>
+          <p class="text-sm text-slate-300 max-w-md mx-auto">
+            Our Creative Directors will review your vision and contact you within 24 hours to schedule your free visual audit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-background border-t border-border/30">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center font-bold text-primary">TK</div>
+        <span class="text-sm text-slate-400">© 2026 TechKhit Myanmar. All Rights Reserved.</span>
+      </div>
+      <div class="flex gap-6 text-xs text-slate-400">
+        <a href="index.html" class="hover:text-primary transition-all">Home</a>
+        <a href="index.html#about" class="hover:text-primary transition-all">About Us</a>
+        <a href="index.html#services" class="hover:text-primary transition-all">Services</a>
+        <a href="index.html#portfolio" class="hover:text-primary transition-all">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Script for Form and Icons -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Handle Form Submission
+    const form = document.getElementById('creative-contact-form');
+    const successDiv = document.getElementById('form-success');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Processing Request...';
+      lucide.createIcons();
+
+      setTimeout(() => {
+        form.classList.add('hidden');
+        successDiv.classList.remove('hidden');
+        window.scrollTo({
+          top: document.getElementById('contact').offsetTop + 100,
+          behavior: 'smooth'
+        });
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

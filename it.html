@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IT Systems Development & Business Automation | TechKhit Myanmar</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind CSS Config for Custom Colors & Animations -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E2B842', /* Burmese Amber Gold */
+            background: '#0B1120', /* Deep Obsidian Blue */
+            card: '#152035', /* Dark Card Slate */
+            border: '#1F2E4D', /* Deep Blue Border */
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B1120;
+    }
+    .glow-card {
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .glow-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(to bottom right, rgba(226, 184, 66, 0.2), transparent, rgba(31, 46, 77, 0.5));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .glow-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(226, 184, 66, 0.1);
+    }
+    .btn-tactile {
+      transition: all 0.2s ease-out;
+    }
+    .btn-tactile:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="text-slate-100 overflow-x-hidden">
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center font-extrabold text-background shadow-lg shadow-primary/20 group-hover:scale-105 transition-all">
+          TK
+        </div>
+        <div>
+          <span class="text-lg font-black tracking-wider text-white">TECH<span class="text-primary">KHIT</span></span>
+          <span class="block text-[10px] text-slate-400 font-bold tracking-widest uppercase">Myanmar • Creative & Tech</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="text-slate-300 hover:text-primary text-sm font-semibold flex items-center gap-2 transition-all">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+        </a>
+        <a href="#contact" class="px-5 py-2.5 bg-primary text-background hover:bg-primary/90 text-xs font-bold rounded-xl btn-tactile transition-all shadow-lg shadow-primary/10">
+          Book IT Audit
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section / Pitch Header -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <!-- Gradient Glow Backgrounds -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-10 right-10 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-extrabold tracking-wider uppercase mb-2">
+        <i data-lucide="cpu" class="w-3.5 h-3.5 animate-pulse"></i> Enterprise IT & Automation Systems
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.15] tracking-tight">
+        Stop Fighting Fragmented Systems. <br class="hidden md:inline">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-300">Scale with High-Performance IT.</span>
+      </h1>
+      <p class="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        We replace manual bottlenecks, unstable spreadsheets, and siloed software with robust, enterprise-grade digital environments built specifically for Myanmar's operational landscapes.
+      </p>
+      <div class="pt-4 flex flex-wrap justify-center gap-4">
+        <a href="#contact" class="px-8 py-4 bg-primary text-background hover:bg-primary/90 text-sm font-bold rounded-xl btn-tactile transition-all shadow-xl shadow-primary/15 flex items-center gap-2">
+          Claim Your Free IT Audit <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#solutions" class="px-8 py-4 bg-card border border-border text-white hover:bg-border/30 text-sm font-bold rounded-xl btn-tactile transition-all flex items-center gap-2">
+          Explore Services <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem vs Solution Section -->
+  <section id="problems" class="py-20 bg-background border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">The Cost of "Good Enough" IT</h2>
+        <p class="text-slate-400">Relying on fragmented workflows, manual entries, and disconnected systems is silently draining your company's growth potential.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Problems Column -->
+        <div class="glow-card bg-card/40 border border-red-500/10 rounded-2xl p-8 space-y-6">
+          <div class="flex items-center gap-3 text-red-400">
+            <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center"><i data-lucide="alert-triangle" class="w-5 h-5"></i></div>
+            <h3 class="text-xl font-bold text-white">The Daily Bottlenecks</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Fragmented Manual Entry</h4>
+                <p class="text-xs text-slate-400 mt-1">Copying lead data from Facebook ads to Excel manually causes delays, lost contacts, and human error.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Blind Executive Decision-Making</h4>
+                <p class="text-xs text-slate-400 mt-1">Scattered files mean you have zero real-time operational or sales dashboards. You rely on historical gut feeling.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">System Downtime & Security Gaps</h4>
+                <p class="text-xs text-slate-400 mt-1">Outdated systems, zero systematic backups, and lack of firewall monitoring leave you exposed to critical operational stalls.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions Column -->
+        <div class="glow-card bg-card/40 border border-primary/20 rounded-2xl p-8 space-y-6">
+          <div class="flex items-center gap-3 text-primary">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+            <h3 class="text-xl font-bold text-white">The TechKhit Blueprint</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Unified Automation Fabrics</h4>
+                <p class="text-xs text-slate-400 mt-1">We route leads automatically from social platforms straight to your CRM and dispatch instant WhatsApp/Email notifications.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Real-Time BI Dashboard Command</h4>
+                <p class="text-xs text-slate-400 mt-1">Consolidate all branches, sales, and operations into a live executive command interface with instant visual metrics.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Proactive Security & SLA Assured Support</h4>
+                <p class="text-xs text-slate-400 mt-1">Automated firewalls, continuous backup pipelines, and dedicated elite support ensure 99.9% operational uptime.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid (Content from pasted_content.txt) -->
+  <section id="solutions" class="py-20 bg-background/50 border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Our Offerings</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Enterprise-Grade IT Solutions</h2>
+        <p class="text-slate-400">Engineered specifically to capture, automate, visualize, and optimize corporate operations in Myanmar.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 1. Web Design & Development -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="globe" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Web Design & Development</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              We build high-performance, responsive digital environments engineered to capture leads and represent your brand cleanly.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80" alt="Web Design & Development" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Landing Page Ecosystems:</strong> Light, aesthetic, and high-converting with automated Google Sheets sync.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Corporate Web Platforms:</strong> CMS integration with external environments like Odoo CRM and WhatsApp APIs.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Enterprise E-Commerce:</strong> WooCommerce/Shopify stores with KBZPay, WaveMoney, and Stripe gateway integrations.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Lead Gen focused</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 2. Business Process Automation -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="git-branch" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Business Process Automation</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Eliminate manual bottlenecks with custom, cloud-hosted automation fabrics built across Pabbly Connect, Make, Zapier, or self-hosted n8n infrastructure.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="Business Process Automation" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Lead & CRM Pipelines:</strong> Automated lead capture, tracking, and routing from Facebook Ads straight to central repositories.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Operational Workflows:</strong> Cross-platform syncing, document generation, and customized multi-tiered approval chains.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">n8n / Pabbly / Make</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 3. BI & Analytics Platforms -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">BI & Analytics Platforms</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Turn unorganized data silos into clean, real-time visual infrastructure using clear executive command interfaces.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="BI & Analytics Dashboards" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Data Aggregation:</strong> Centralized integration spanning flat data (Excel, Sheets), web tracking databases, and social channels.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Strategic KPI Dashboards:</strong> Real-time command visibility over conversion structures, operational efficiency, and agent pipelines.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Command Centers</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 4. Custom Software & Core Systems -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="layout" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Custom Software & Core Systems</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Tailor-made software infrastructure built to match unique operating models.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80" alt="Custom Software & ERP" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Management Frameworks:</strong> Platform construction spanning clinic, hotel, crew logistics, and real estate.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Odoo ERP Implementations:</strong> Consulting and deployment of Odoo CRM, Accounting, Inventory, and workforce management.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Tailor-Made Solutions</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 5. Basic Maintenance Support -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Basic Maintenance Support</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Continuous, proactive monitoring to maintain application stability, speed, and platform health.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80" alt="Maintenance & Security" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Platform Security:</strong> Systematic implementation of security updates, regular firewalls, and isolated backups.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Continuous Monitoring:</strong> Around-the-clock server monitoring, downtime mitigation, bug resolution, and routine content updates.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Uptime Guaranteed</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 6. Business Support & Process Optimization -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="sliders" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Business Support & Optimization</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Dedicated elite assistance for businesses managing active workflows, digital platforms, and scaling operations.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=400&q=80" alt="Process Optimization" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>System Refinement:</strong> Webhook and integration maintenance, and routine modifications to dashboards.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Operational Assistance:</strong> Priority technical support, strategic workflow optimization audits, and structured SLA response guarantees.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Dedicated SLA</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI / Benefits Section -->
+  <section class="py-20 bg-background border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Strategic Impact</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">The Benefits of Professional Infrastructure</h2>
+        <p class="text-slate-400">How replacing broken systems with custom engineering directly translates into corporate growth and peace of mind.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="clock-3" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">90% Time Saved</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Automating manual data routing means your sales team focuses 100% on closing clients instead of copying and pasting lead sheets.
+          </p>
+        </div>
+
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="eye" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">100% Operational Clarity</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Consolidate your branches and pipelines into real-time KPI command dashboards. Make informed business decisions based on data, not guesses.
+          </p>
+        </div>
+
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="shield" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Zero-Stress Stability</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Rest easy knowing our proactive security, systematic backups, and priority SLA-backed assistance maintain your platform's absolute health.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact Form / Pitch CTA -->
+  <section id="contact" class="py-20 bg-background/50 border-t border-border/30 relative">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Let's Talk Infrastructure</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Claim Your Free IT & Automation Audit</h2>
+        <p class="text-slate-400">Our engineering leads will audit your current workflow bottlenecks, security gaps, and system opportunities at zero cost.</p>
+      </div>
+
+      <div class="glow-card bg-card border border-border rounded-2xl p-8 md:p-12">
+        <form id="it-contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Your Name</label>
+              <input type="text" id="name" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., U Mg Mg">
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Corporate Email</label>
+              <input type="email" id="email" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., company@domain.com">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Phone Number / Telegram</label>
+              <input type="text" id="phone" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., +95 9 ...">
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Operational Focus</label>
+              <select id="focus" class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all">
+                <option value="web-dev">Web Design & E-Commerce</option>
+                <option value="automation">Business Process Automation</option>
+                <option value="bi-analytics">BI & Analytics Platforms</option>
+                <option value="custom-erp">Custom Software / Odoo ERP</option>
+                <option value="maintenance">Maintenance & Dedicated Support</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Describe Your Core System Bottleneck</label>
+            <textarea id="message" rows="4" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all resize-none" placeholder="What manual tasks or fragmented systems are currently slowing your team down?"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-primary text-background hover:bg-primary/90 text-sm font-extrabold rounded-xl btn-tactile transition-all shadow-xl shadow-primary/10 flex items-center justify-center gap-2">
+            Submit Audit Request <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+        <div id="form-success" class="hidden text-center py-8 space-y-4">
+          <div class="w-16 h-16 bg-primary/10 border border-primary/20 text-primary rounded-full flex items-center justify-center mx-auto">
+            <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white">Audit Request Received!</h3>
+          <p class="text-sm text-slate-300 max-w-md mx-auto">
+            Our IT Systems Engineering lead will review your bottlenecks and contact you within 24 hours to schedule your free consultation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-background border-t border-border/30">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center font-bold text-primary">TK</div>
+        <span class="text-sm text-slate-400">© 2026 TechKhit Myanmar. All Rights Reserved.</span>
+      </div>
+      <div class="flex gap-6 text-xs text-slate-400">
+        <a href="index.html" class="hover:text-primary transition-all">Home</a>
+        <a href="index.html#about" class="hover:text-primary transition-all">About Us</a>
+        <a href="index.html#services" class="hover:text-primary transition-all">Services</a>
+        <a href="index.html#portfolio" class="hover:text-primary transition-all">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Script for Form and Icons -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Handle Form Submission
+    const form = document.getElementById('it-contact-form');
+    const successDiv = document.getElementById('form-success');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Processing Request...';
+      lucide.createIcons();
+
+      setTimeout(() => {
+        form.classList.add('hidden');
+        successDiv.classList.remove('hidden');
+        window.scrollTo({
+          top: document.getElementById('contact').offsetTop + 100,
+          behavior: 'smooth'
+        });
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
