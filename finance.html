@@ -451,7 +451,7 @@
     const form = document.getElementById('finance-contact-form');
     const successDiv = document.getElementById('form-success');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
       
       const btn = form.querySelector('button[type="submit"]');
@@ -460,14 +460,34 @@
       btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Processing Request...';
       lucide.createIcons();
 
-      setTimeout(() => {
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            page: 'Finance & Accounting',
+            name: form.querySelector('#name').value.trim(),
+            email: form.querySelector('#email').value.trim(),
+            phone: form.querySelector('#phone').value.trim(),
+            focus: form.querySelector('#focus').value,
+            message: form.querySelector('#message').value.trim(),
+          }),
+        });
+
+        if (!response.ok) throw new Error('Email send failed');
+
         form.classList.add('hidden');
         successDiv.classList.remove('hidden');
         window.scrollTo({
           top: document.getElementById('contact').offsetTop + 100,
           behavior: 'smooth'
         });
-      }, 1500);
+      } catch (error) {
+        alert('Sorry, we could not send your request right now. Please try again later.');
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        lucide.createIcons();
+      }
     });
   </script>
 </body>

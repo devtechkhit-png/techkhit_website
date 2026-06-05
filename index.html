@@ -771,21 +771,37 @@
     updateClock();
     setInterval(updateClock, 1000);
 
-    // Form Submission Simulation
-    function handleFormSubmit(e) {
+    async function handleFormSubmit(e) {
       e.preventDefault();
       const btn = document.getElementById('form-btn');
+      const originalText = btn.innerHTML;
       btn.disabled = true;
       btn.innerHTML = 'Sending... <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>';
       lucide.createIcons();
 
-      setTimeout(() => {
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            page: 'Homepage',
+            name: document.getElementById('form-name').value.trim(),
+            email: document.getElementById('form-email').value.trim(),
+            message: document.getElementById('form-msg').value.trim(),
+          }),
+        });
+
+        if (!response.ok) throw new Error('Email send failed');
+
         alert("Message sent successfully! TechKhit will contact you soon.");
         document.getElementById('contact-form').reset();
+      } catch (error) {
+        alert("Sorry, we could not send your message right now. Please try again later.");
+      } finally {
         btn.disabled = false;
-        btn.innerHTML = 'Send Message <i data-lucide="send" class="w-4 h-4"></i>';
+        btn.innerHTML = originalText;
         lucide.createIcons();
-      }, 1500);
+      }
     }
 
     // Chatbot Functionality
