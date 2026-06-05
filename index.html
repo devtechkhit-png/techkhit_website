@@ -12,6 +12,8 @@
   
   <!-- Tailwind CSS CDN -->
   <link rel="stylesheet" href="output.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   
   <style>
     html {
@@ -689,7 +691,7 @@
     lucide.createIcons();
 
     // Mobile Menu Toggle
-    let mobileMenuOpen = false;
+    var mobileMenuOpen = false;
     function toggleMobileMenu() {
       mobileMenuOpen = !mobileMenuOpen;
       const menu = document.getElementById('mobile-menu');
