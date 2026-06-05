@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechKhit | Myanmar's Premier Creative & Tech Agency</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#111d2e', // Deep Obsidian Dark
+            card: '#15243b',       // Lighter obsidian for cards
+            border: '#22354f',     // Custom border
+            primary: {
+              DEFAULT: '#f3c614',  // Signature Amber Gold
+              foreground: '#111d2e'
+            },
+            muted: {
+              DEFAULT: '#1b2c45',
+              foreground: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #111d2e;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+    .btn-tactile:active {
+      transform: scale(0.96);
+    }
+    .btn-tactile {
+      transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .glow-card {
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .glow-card:hover {
+      border-color: #f3c614;
+      box-shadow: 0 0 25px rgba(243, 198, 20, 0.15);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col relative selection:bg-primary selection:text-background">
+
+  <!-- Ambient Glow Background Blobs -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[#f3c614]/5 blur-[120px]"></div>
+    <div class="absolute top-[40%] right-[-10%] w-[60%] h-[60%] rounded-full bg-blue-500/5 blur-[150px]"></div>
+    <div class="absolute bottom-[10%] left-[20%] w-[45%] h-[45%] rounded-full bg-[#f3c614]/5 blur-[130px]"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-border/50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#hero" onclick="scrollToSection('hero')" class="flex items-center gap-2 cursor-pointer">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-amber-500 flex items-center justify-center shadow-lg shadow-primary/20">
+          <span class="font-extrabold text-lg text-background">TK</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-xl tracking-tight leading-none text-white">
+            TECH<span class="text-primary">KHIT</span>
+          </span>
+          <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase mt-0.5">
+            Myanmar • Creative & Tech
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <button onclick="scrollToSection('hero')" class="text-sm font-semibold hover:text-primary transition-colors">HOME</button>
+        <button onclick="scrollToSection('about')" class="text-sm font-semibold hover:text-primary transition-colors">ABOUT US</button>
+        <button onclick="scrollToSection('services')" class="text-sm font-semibold hover:text-primary transition-colors">OUR SERVICES</button>
+        <button onclick="scrollToSection('portfolio')" class="text-sm font-semibold hover:text-primary transition-colors">OUR PORTFOLIO</button>
+        <button onclick="scrollToSection('contact')" class="px-5 py-2.5 bg-primary text-background rounded-xl text-sm font-bold hover:bg-primary/90 transition-all btn-tactile shadow-lg shadow-primary/10">
+          CONTACT US
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-white hover:text-primary transition-colors">
+        <i id="menu-icon" data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Panel -->
+  <div id="mobile-menu" class="hidden md:hidden fixed top-20 left-0 w-full bg-card border-b border-border z-30 shadow-xl">
+    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-4">
+      <button onclick="scrollToSection('hero')" class="text-left py-2 font-bold text-white hover:text-primary transition-colors">HOME</button>
+      <button onclick="scrollToSection('about')" class="text-left py-2 font-bold text-white hover:text-primary transition-colors">ABOUT US</button>
+      <button onclick="scrollToSection('services')" class="text-left py-2 font-bold text-white hover:text-primary transition-colors">OUR SERVICES</button>
+      <button onclick="scrollToSection('portfolio')" class="text-left py-2 font-bold text-white hover:text-primary transition-colors">OUR PORTFOLIO</button>
+      <button onclick="scrollToSection('contact')" class="w-full py-3 bg-primary text-background rounded-xl font-bold text-center btn-tactile mt-2">
+        CONTACT US
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1 z-10">
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=1920&q=80');">
+      <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+        <!-- Visual Accent Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-8">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          Creative • Strategic • Digital
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight leading-tight max-w-5xl mx-auto text-white">
+          WE CAN HELP <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-amber-400 to-primary">
+            YOUR BUSINESS GROW FASTER
+          </span>
+        </h1>
+
+        <!-- Thin Aesthetic Divider -->
+        <div class="w-[100px] h-[2px] bg-primary mx-auto my-8"></div>
+
+        <!-- Sub-headline -->
+        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Myanmar's premier creative-tech partner. We blend cutting-edge technology with high-impact creative marketing to deliver measurable growth and real ROI for local businesses.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+          <button onclick="scrollToSection('about')" class="w-full sm:w-auto px-8 py-4 bg-primary text-background font-bold rounded-xl hover:bg-primary/90 transition-all btn-tactile flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+            See the details <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </button>
+          <button onclick="scrollToSection('services')" class="w-full sm:w-auto px-8 py-4 bg-card text-white font-bold rounded-xl hover:bg-card/80 transition-all border border-border flex items-center justify-center gap-2 btn-tactile">
+            Explore Services
+          </button>
+        </div>
+
+        <!-- Local Myanmar Time Widget -->
+        <div class="flex flex-col md:flex-row gap-6 justify-center items-center py-6 px-8 bg-card/30 backdrop-blur-md rounded-2xl border border-border max-w-md mx-auto my-8">
+          <div class="flex items-center gap-3 text-primary">
+            <i data-lucide="map-pin" class="w-5 h-5 animate-bounce text-primary"></i>
+            <span class="text-sm font-semibold tracking-wider uppercase text-slate-400">HQ Location:</span>
+          </div>
+          
+          <div class="flex gap-4 items-center">
+            <!-- Yangon Clock -->
+            <div class="flex flex-col items-start">
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                Yangon, Myanmar
+              </div>
+              <div class="flex items-center gap-2 text-xl font-mono font-bold text-white">
+                <i data-lucide="clock" class="w-4 h-4 text-primary"></i>
+                <span id="yangon-time">00:00:00 AM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-primary text-background relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-background/70 mb-4">Who We Are</h2>
+        <h3 class="text-3xl md:text-5xl font-extrabold mb-8">About TechKhit Myanmar</h3>
+        <p class="text-xl md:text-2xl font-bold leading-relaxed mb-8 max-w-3xl mx-auto">
+          We bridge the gap between creative marketing strategy and enterprise-grade software development for Myanmar's digital landscape.
+        </p>
+        <p class="text-base md:text-lg text-background/90 leading-relaxed max-w-3xl mx-auto mb-10">
+          With deep operational roots in Yangon, TechKhit Myanmar is built specifically to elevate local brands, corporations, and startups with world-class digital standards and local execution agility. Our team consists of industry-veteran project managers, creative video directors, experienced financial analysts, and custom software engineers right here in Yangon.
+        </p>
+        <button onclick="scrollToSection('services')" class="px-8 py-4 bg-background text-primary font-bold rounded-xl hover:bg-background/90 transition-all btn-tactile inline-flex items-center gap-2 shadow-xl shadow-black/10">
+          Explore Our Services <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Why Tech Khit Section -->
+    <section class="py-24 relative">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">Our Edge</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-white">Why Tech Khit?</h2>
+            <p class="text-slate-300 leading-relaxed mb-6 text-lg">
+              Based in Yangon, TechKhit blends local market insights with high international standards to deliver tailored digital pathways.
+            </p>
+            <p class="text-slate-400 leading-relaxed mb-8">
+              Our team understands the unique challenges of modern businesses in Myanmar and delivers digital solutions that are cost-effective, scalable, and focused on real ROI. We do not just build websites or run ads; we craft tailored digital pathways.
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-primary"></i>
+                </div>
+                <span class="text-sm font-semibold text-white">Deep Local Myanmar Market Insights</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-primary"></i>
+                </div>
+                <span class="text-sm font-semibold text-white">Focus on Real ROI & Business Growth</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                  <i data-lucide="check" class="w-3.5 h-3.5 text-primary"></i>
+                </div>
+                <span class="text-sm font-semibold text-white">High-End Creative & Technology Engineering Team</span>
+              </div>
+            </div>
+          </div>
+          <div class="relative aspect-square rounded-2xl overflow-hidden border border-border bg-card shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="TechKhit Collaborative Team" class="w-full h-full object-cover brightness-[0.85]">
+            <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section with 5 Custom Blocks -->
+    <section id="services" class="py-24 bg-card/20 border-y border-border/50 relative">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">Our Expertise</span>
+          <h2 class="text-3xl md:text-5xl font-extrabold mb-4 text-white">Our Core Services</h2>
+          <p class="text-slate-400">Tailored strategic and digital systems engineered specifically for Myanmar organizations:</p>
+        </div>
+
+        <!-- Detailed 5 Services Grid -->
+        <div class="space-y-16">
+          <!-- 1. Project Management & Framework Governance -->
+          <div class="glow-card bg-card border border-border rounded-2xl p-6 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                <i data-lucide="activity" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white">Project Management & Framework Governance</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                We design, deploy, and govern structured project management systems built to turn strategic goals into predictable team velocity.
+              </p>
+              <div class="aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-md">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80" alt="Project Management & Governance" class="w-full h-full object-cover brightness-[0.8]">
+              </div>
+            </div>
+            <div class="lg:col-span-8 flex flex-col justify-between h-full gap-6">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="folder-kanban" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">PMO Workspace Architecture</h4>
+                    <p class="text-xs text-slate-400">Logical shared drives, cloud environment provisioning, and alignment onboarding.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="check-square" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Governance Operations</h4>
+                    <p class="text-xs text-slate-400">Recurring PMO check-ins, obstacle unblocking, and progress digests.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="layout-grid" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Odoo ERP Setup</h4>
+                    <p class="text-xs text-slate-400">Structured ERP implementation, custom configurations, and team onboarding.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="clipboard-check" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Scheduled Evaluation</h4>
+                    <p class="text-xs text-slate-400">Quarterly operational audits, verification cycles, and strategic overhauls.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end mt-2">
+                <a href="pm.html" class="px-5 py-2.5 bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-background text-xs font-bold rounded-xl flex items-center gap-2 btn-tactile transition-all">
+                  Find Out More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Creative Studio & AI Video Production -->
+          <div class="glow-card bg-card border border-border rounded-2xl p-6 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                <i data-lucide="clapperboard" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white">Creative Studio & AI Video Production</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                We blend high-end graphic design with cutting-edge AI video and multimedia production to tell your story with maximum visual impact.
+              </p>
+              <div class="aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-md">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80" alt="Creative Studio & AI Video" class="w-full h-full object-cover brightness-[0.8]">
+              </div>
+            </div>
+            <div class="lg:col-span-8 flex flex-col justify-between h-full gap-6">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="box" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">3D Modeling & Space Design</h4>
+                    <p class="text-xs text-slate-400">High-fidelity 3D modeling, spatial renderings, and immersive trade show layouts.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Hybrid AI Video</h4>
+                    <p class="text-xs text-slate-400">Cinematic AI-driven visuals combined with live footage and full post-production.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="smile" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Mascot & Identity Design</h4>
+                    <p class="text-xs text-slate-400">Custom brand identity, brand mascot development, and digital collateral.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="megaphone" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Omni-Channel Content</h4>
+                    <p class="text-xs text-slate-400">Growth-focused social media campaigns, content calendars, and active management.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end mt-2">
+                <a href="creative.html" class="px-5 py-2.5 bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-background text-xs font-bold rounded-xl flex items-center gap-2 btn-tactile transition-all">
+                  Find Out More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Corporate Finance & Accounting -->
+          <div class="glow-card bg-card border border-border rounded-2xl p-6 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                <i data-lucide="banknote" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white">Corporate Finance & Accounting</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                We architect, clean, and manage robust financial systems that transform raw transaction data into strategic business intelligence.
+              </p>
+              <div class="aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-md">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80" alt="Corporate Finance & Accounting" class="w-full h-full object-cover brightness-[0.8]">
+              </div>
+            </div>
+            <div class="lg:col-span-8 flex flex-col justify-between h-full gap-6">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="pie-chart" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Financial Architecture</h4>
+                    <p class="text-xs text-slate-400">Compliant charts of accounts, localized general ledgers, and cloud integrations.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="receipt" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Operational Accounting</h4>
+                    <p class="text-xs text-slate-400">Monthly bank reconciliations, invoicing pipelines, and balance sheet prep.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Cash Flow Forecasting</h4>
+                    <p class="text-xs text-slate-400">Dynamic financial models, runway projections, and budget compliance reviews.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Audit-Ready Packages</h4>
+                    <p class="text-xs text-slate-400">Organized end-of-year financial packages prepared for corporate audits.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end mt-2">
+                <a href="finance.html" class="px-5 py-2.5 bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-background text-xs font-bold rounded-xl flex items-center gap-2 btn-tactile transition-all">
+                  Find Out More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Corporate HR & Administration -->
+          <div class="glow-card bg-card border border-border rounded-2xl p-6 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white">Corporate HR & Administration</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                We structure compliant, highly efficient human resource systems and office administrative pipelines.
+              </p>
+              <div class="aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-md">
+                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=80" alt="Corporate HR & Administration" class="w-full h-full object-cover brightness-[0.8]">
+              </div>
+            </div>
+            <div class="lg:col-span-8 flex flex-col justify-between h-full gap-6">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="file-text" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">HR Policy & Handbook</h4>
+                    <p class="text-xs text-slate-400">Employee SOPs, compliant employment contracts, and policy manuals.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="wallet" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Managed Payroll</h4>
+                    <p class="text-xs text-slate-400">Payroll calculations, tax withholdings, and benefit allocations.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="user-plus" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Onboarding Frameworks</h4>
+                    <p class="text-xs text-slate-400">New hire training pathways, role handovers, and performance templates.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="briefcase" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Admin Pipelines</h4>
+                    <p class="text-xs text-slate-400">Day-to-day office admin, document filing, and operational retainers.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end mt-2">
+                <a href="hr.html" class="px-5 py-2.5 bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-background text-xs font-bold rounded-xl flex items-center gap-2 btn-tactile transition-all">
+                  Find Out More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. IT Systems Development -->
+          <div class="glow-card bg-card border border-border rounded-2xl p-6 md:p-10 grid lg:grid-cols-12 gap-8 items-center relative">
+            <div class="lg:col-span-4 space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                <i data-lucide="cpu" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-2xl font-extrabold text-white">IT Systems Development</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                We architect, develop, and integrate secure, custom IT systems and automation workflows tailored to your operational blueprints.
+              </p>
+              <div class="aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-md">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80" alt="IT Systems Development" class="w-full h-full object-cover brightness-[0.8]">
+              </div>
+            </div>
+            <div class="lg:col-span-8 flex flex-col justify-between h-full gap-6">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="code" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Custom Software Dev</h4>
+                    <p class="text-xs text-slate-400">Tailor-made web applications, databases, and secure backend systems.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="link" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">System Integrations</h4>
+                    <p class="text-xs text-slate-400">REST API setup, Odoo/Salesforce CRM syncing, and data pipelines.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="cloud" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Cloud Infrastructure</h4>
+                    <p class="text-xs text-slate-400">Secure AWS/Google Cloud setup, database tuning, and performance scaling.</p>
+                  </div>
+                </div>
+                <div class="p-5 bg-background/50 border border-border/50 rounded-xl flex gap-4">
+                  <div class="text-primary shrink-0"><i data-lucide="wrench" class="w-5 h-5"></i></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Maintenance & Patches</h4>
+                    <p class="text-xs text-slate-400">Active server health monitoring, security patching, and user access audits.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end mt-2">
+                <a href="it.html" class="px-5 py-2.5 bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-background text-xs font-bold rounded-xl flex items-center gap-2 btn-tactile transition-all">
+                  Find Out More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Projects Section -->
+    <section id="portfolio" class="py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <span class="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">Our Work</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white">Recent Projects</h2>
+            <p class="text-slate-400 mt-2">Explore some of our latest work across industries — from real estate and education to fashion and fintech.</p>
+          </div>
+          <button onclick="alert('Full portfolio portal coming soon! Check out the featured projects below.')" class="px-6 py-3 bg-card hover:bg-card/80 border border-border text-white text-sm font-bold rounded-xl flex items-center gap-2 btn-tactile shrink-0">
+            View Full Portfolio <i data-lucide="external-link" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Projects Showcase -->
+        <div class="grid md:grid-cols-2 gap-10">
+          <!-- Ko Konjac -->
+          <div class="group cursor-pointer">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-card mb-6 relative">
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663081524801/2KdGiEr6yRcwFQpTHohQK8/project-konjac-DnW5ahxBmJFiN9GifhiWUg.webp" alt="Ko Konjac" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 brightness-[0.85]">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <span class="text-xs font-bold bg-primary text-background px-3 py-1.5 rounded-lg uppercase tracking-wider">Branding & Packaging</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-primary uppercase tracking-widest mb-1 block">Branding & Packaging</span>
+                <h3 class="text-2xl font-extrabold group-hover:text-primary transition-colors text-white">Ko Konjac</h3>
+                <p class="text-slate-400 mt-1.5 text-sm max-w-md">Minimalist modern organic food packaging designed to capture premium retail markets.</p>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all">
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Easy Estate -->
+          <div class="group cursor-pointer">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-border bg-card mb-6 relative">
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663081524801/2KdGiEr6yRcwFQpTHohQK8/project-estate-BgLzW4rQEZaXxdqkM4XyYb.webp" alt="Easy Estate" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 brightness-[0.85]">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                <span class="text-xs font-bold bg-primary text-background px-3 py-1.5 rounded-lg uppercase tracking-wider">Web App & UI/UX</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-primary uppercase tracking-widest mb-1 block">Web App & UI/UX</span>
+                <h3 class="text-2xl font-extrabold group-hover:text-primary transition-colors text-white">Easy Estate</h3>
+                <p class="text-slate-400 mt-1.5 text-sm max-w-md">A luxury property visualization platform with sunset architectural highlights and sleek UI.</p>
+              </div>
+              <div class="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center group-hover:bg-primary group-hover:text-background transition-all">
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready to Build / Contact Us Section -->
+    <section id="contact" class="py-24 bg-card/10 border-t border-border/50 relative">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span class="text-xs font-bold text-primary uppercase tracking-widest mb-2 block">Get In Touch</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-white">Ready to build your brand with confidence?</h2>
+            <p class="text-slate-300 leading-relaxed mb-8">
+              Whether you have a fully drafted project spec or just a spark of an idea, let’s discuss how TechKhit can help your Myanmar business grow faster. Send us a message or visit us at our Yangon HQ!
+            </p>
+            <div class="flex items-center gap-4">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" class="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-colors">
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" class="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-colors">
+                <i data-lucide="facebook" class="w-5 h-5"></i>
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="w-10 h-10 rounded-xl bg-card border border-border flex items-center justify-center text-slate-400 hover:text-primary hover:border-primary transition-colors">
+                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-card border border-border p-8 rounded-2xl shadow-xl">
+            <h3 class="text-xl font-bold mb-6 text-white">PLEASE CONTACT US</h3>
+            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div>
+                <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Your Name</label>
+                <input type="text" id="form-name" required placeholder="e.g. Aung Kyaw" class="w-full bg-background/50 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-white">
+              </div>
+              <div>
+                <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Email Address</label>
+                <input type="email" id="form-email" required placeholder="e.g. aung@example.com" class="w-full bg-background/50 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-white">
+              </div>
+              <div>
+                <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1.5">Your Message</label>
+                <textarea id="form-msg" required rows="4" placeholder="Describe your project, timeline, and requirements..." class="w-full bg-background/50 border border-border rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors text-white resize-none"></textarea>
+              </div>
+              <button type="submit" id="form-btn" class="w-full py-4 bg-primary text-background font-bold rounded-xl hover:bg-primary/90 transition-all flex items-center justify-center gap-2 btn-tactile shadow-lg shadow-primary/10">
+                Send Message <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-card border-t border-border py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+          <span class="font-extrabold text-sm text-background">TK</span>
+        </div>
+        <span class="font-bold text-lg text-white">
+          TECH<span class="text-primary">KHIT</span>
+        </span>
+      </div>
+      <div class="flex flex-col items-center md:items-end gap-1">
+        <p class="text-xs text-slate-400 text-center md:text-right">
+          © 2026 TechKhit Myanmar | All Rights Reserved
+        </p>
+        <p class="text-[10px] text-slate-500">
+          Yangon, Myanmar
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Chatbot Widget (KhitBot) -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <!-- Chat Window -->
+    <div id="chat-window" class="hidden w-80 md:w-96 h-[500px] rounded-2xl border border-border bg-card/95 backdrop-blur-xl shadow-2xl flex flex-col overflow-hidden mb-4">
+      <!-- Header -->
+      <div class="bg-primary text-background p-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center relative">
+            <i data-lucide="bot" class="w-5 h-5 text-background"></i>
+            <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-primary rounded-full"></span>
+          </div>
+          <div>
+            <h3 class="font-bold text-sm leading-tight flex items-center gap-1.5">
+              KhitBot <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            </h3>
+            <p class="text-xs text-background/80">Active strategic helper</p>
+          </div>
+        </div>
+        <button onclick="toggleChat()" class="text-background/80 hover:text-background p-1 rounded-lg transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Messages Area -->
+      <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 flex flex-col">
+        <!-- Initial Message -->
+        <div class="flex gap-2.5 max-w-[85%] mr-auto">
+          <div class="w-7 h-7 rounded-full bg-muted text-white flex items-center justify-center shrink-0">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div class="p-3 rounded-2xl text-sm leading-relaxed bg-muted text-white rounded-tl-none border border-border/50">
+            Mingalabar! 🙏 Welcome to TechKhit. I am KhitBot, your digital strategic assistant. How can I help grow your business today?
+          </div>
+        </div>
+      </div>
+
+      <!-- Input Bar -->
+      <div class="p-3 border-t border-border bg-card/50 flex gap-2">
+        <input type="text" id="chat-input" onkeydown="handleChatKey(event)" placeholder="Ask about services, portfolio..." class="flex-1 bg-muted border border-border rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:border-primary transition-colors text-white placeholder:text-slate-500">
+        <button onclick="sendChatMessage()" class="p-2.5 bg-primary text-background rounded-xl hover:bg-primary/90 transition-colors shrink-0 flex items-center justify-center btn-tactile">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button onclick="toggleChat()" class="w-14 h-14 bg-primary text-background rounded-full flex items-center justify-center shadow-xl hover:bg-primary/90 transition-colors border border-primary/20 relative group ml-auto">
+      <i data-lucide="message-square" class="w-6 h-6"></i>
+      <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background"></span>
+    </button>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    let mobileMenuOpen = false;
+    function toggleMobileMenu() {
+      mobileMenuOpen = !mobileMenuOpen;
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      if (mobileMenuOpen) {
+        menu.classList.remove('hidden');
+        icon.setAttribute('data-lucide', 'x');
+      } else {
+        menu.classList.add('hidden');
+        icon.setAttribute('data-lucide', 'menu');
+      }
+      lucide.createIcons();
+    }
+
+    // Scroll Helper
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        // If mobile menu is open, close it
+        mobileMenuOpen = false;
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+          mobileMenu.classList.add('hidden');
+          const icon = document.getElementById('menu-icon');
+          if (icon) icon.setAttribute('data-lucide', 'menu');
+          lucide.createIcons();
+        }
+
+        const yOffset = -100; // Offset for header navigation bar
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
+    }
+
+    // Local Yangon Clock Functionality
+    function updateClock() {
+      const clockYangon = document.getElementById('yangon-time');
+      if (!clockYangon) return;
+
+      const optionsYangon = {
+        timeZone: "Asia/Yangon",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      };
+
+      const formatterYangon = new Intl.DateTimeFormat("en-US", optionsYangon);
+      clockYangon.textContent = formatterYangon.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // Form Submission Simulation
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('form-btn');
+      btn.disabled = true;
+      btn.innerHTML = 'Sending... <i data-lucide="loader" class="w-4 h-4 animate-spin"></i>';
+      lucide.createIcons();
+
+      setTimeout(() => {
+        alert("Message sent successfully! TechKhit will contact you soon.");
+        document.getElementById('contact-form').reset();
+        btn.disabled = false;
+        btn.innerHTML = 'Send Message <i data-lucide="send" class="w-4 h-4"></i>';
+        lucide.createIcons();
+      }, 1500);
+    }
+
+    // Chatbot Functionality
+    let chatOpen = false;
+    function toggleChat() {
+      chatOpen = !chatOpen;
+      const chatWin = document.getElementById('chat-window');
+      if (chatOpen) {
+        chatWin.classList.remove('hidden');
+      } else {
+        chatWin.classList.add('hidden');
+      }
+    }
+
+    const botResponses = [
+      {
+        keywords: ["service", "what do you do", "offer", "marketing", "design", "development", "pm", "pmo", "it", "finance", "hr"],
+        response: "We offer specialized suites including Project Management & Framework Governance, Creative Studio & AI Video Production, Corporate Finance, Corporate HR, and IT Systems Development. Check out our Our Services section on this page!"
+      },
+      {
+        keywords: ["about", "who are you", "techkhit", "tech khit"],
+        response: "TechKhit is Myanmar's leading creative-tech agency based in Yangon. We blend deep local market insights with high international standards to deliver cost-effective, scalable marketing and IT systems focused on real ROI."
+      },
+      {
+        keywords: ["portfolio", "work", "projects", "recent"],
+        response: "We have worked with top brands across real estate, education, fashion, and fintech. Check out our Recent Projects section on this page! Highlights include Ko Konjac's organic packaging design and Easy Estate's luxury real estate platform."
+      },
+      {
+        keywords: ["contact", "hire", "price", "quote", "meeting", "call"],
+        response: "We would love to talk! You can fill out our Contact Form on this page, or email us at hello@techkhit.com. Let's build your brand with confidence!"
+      },
+      {
+        keywords: ["hello", "hi", "hey", "mingalabar"],
+        response: "Mingalabar! 😊 Hope you are having a wonderful day. How can I assist you with your digital or creative needs today?"
+      }
+    ];
+
+    function handleChatKey(e) {
+      if (e.key === 'Enter') {
+        sendChatMessage();
+      }
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      input.value = '';
+      appendMessage(text, 'user');
+
+      // Typing simulation
+      appendTypingIndicator();
+
+      setTimeout(() => {
+        removeTypingIndicator();
+        let botText = "Thank you for reaching out! Our team of strategists and developers will get back to you shortly. You can also reach us directly via the Contact form below!";
+        const currentInput = text.toLowerCase();
+
+        for (const item of botResponses) {
+          if (item.keywords.some(keyword => currentInput.includes(keyword))) {
+            botText = item.response;
+            break;
+          }
+        }
+
+        appendMessage(botText, 'bot');
+      }, 1200);
+    }
+
+    function appendMessage(text, sender) {
+      const container = document.getElementById('chat-messages');
+      const msgDiv = document.createElement('div');
+      
+      if (sender === 'user') {
+        msgDiv.className = 'flex gap-2.5 max-w-[85%] ml-auto flex-row-reverse';
+        msgDiv.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-primary text-background flex items-center justify-center shrink-0">
+            <i data-lucide="user" class="w-4 h-4"></i>
+          </div>
+          <div class="p-3 rounded-2xl text-sm leading-relaxed bg-primary text-background rounded-tr-none">
+            ${text}
+          </div>
+        `;
+      } else {
+        msgDiv.className = 'flex gap-2.5 max-w-[85%] mr-auto';
+        msgDiv.innerHTML = `
+          <div class="w-7 h-7 rounded-full bg-muted text-white flex items-center justify-center shrink-0">
+            <i data-lucide="bot" class="w-4 h-4"></i>
+          </div>
+          <div class="p-3 rounded-2xl text-sm leading-relaxed bg-muted text-white rounded-tl-none border border-border/50">
+            ${text}
+          </div>
+        `;
+      }
+
+      container.appendChild(msgDiv);
+      container.scrollTop = container.scrollHeight;
+      lucide.createIcons();
+    }
+
+    function appendTypingIndicator() {
+      const container = document.getElementById('chat-messages');
+      const indicator = document.createElement('div');
+      indicator.id = 'typing-indicator';
+      indicator.className = 'flex gap-2.5 max-w-[85%] mr-auto';
+      indicator.innerHTML = `
+        <div class="w-7 h-7 rounded-full bg-muted text-white flex items-center justify-center shrink-0">
+          <i data-lucide="bot" class="w-4 h-4"></i>
+        </div>
+        <div class="bg-muted text-white p-3 rounded-2xl rounded-tl-none border border-border/50 flex gap-1 items-center h-9">
+          <span class="w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce"></span>
+          <span class="w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+          <span class="w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+        </div>
+      `;
+      container.appendChild(indicator);
+      container.scrollTop = container.scrollHeight;
+      lucide.createIcons();
+    }
+
+    function removeTypingIndicator() {
+      const indicator = document.getElementById('typing-indicator');
+      if (indicator) {
+        indicator.remove();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Finance & Accounting | TechKhit Myanmar</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Tailwind CSS Config for Custom Colors & Animations -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E2B842', /* Burmese Amber Gold */
+            background: '#0B1120', /* Deep Obsidian Blue */
+            card: '#152035', /* Dark Card Slate */
+            border: '#1F2E4D', /* Deep Blue Border */
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0B1120;
+    }
+    .glow-card {
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .glow-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(to bottom right, rgba(226, 184, 66, 0.2), transparent, rgba(31, 46, 77, 0.5));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .glow-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(226, 184, 66, 0.1);
+    }
+    .btn-tactile {
+      transition: all 0.2s ease-out;
+    }
+    .btn-tactile:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="text-slate-100 overflow-x-hidden">
+
+  <!-- Navigation Bar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center font-extrabold text-background shadow-lg shadow-primary/20 group-hover:scale-105 transition-all">
+          TK
+        </div>
+        <div>
+          <span class="text-lg font-black tracking-wider text-white">TECH<span class="text-primary">KHIT</span></span>
+          <span class="block text-[10px] text-slate-400 font-bold tracking-widest uppercase">Myanmar • Creative & Tech</span>
+        </div>
+      </a>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="text-slate-300 hover:text-primary text-sm font-semibold flex items-center gap-2 transition-all">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+        </a>
+        <a href="#contact" class="px-5 py-2.5 bg-primary text-background hover:bg-primary/90 text-xs font-bold rounded-xl btn-tactile transition-all shadow-lg shadow-primary/10">
+          Book Finance Audit
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section / Pitch Header -->
+  <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <!-- Gradient Glow Backgrounds -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-10 right-10 w-[300px] h-[300px] bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-extrabold tracking-wider uppercase mb-2">
+        <i data-lucide="banknote" class="w-3.5 h-3.5 animate-pulse"></i> Corporate Finance & Accounting
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black text-white leading-[1.15] tracking-tight">
+        Total Financial Control. <br class="hidden md:inline">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-amber-300">Turn Raw Transactions Into Strategic Intelligence.</span>
+      </h1>
+      <p class="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+        We architect, clean, and manage robust financial systems and back-office pipelines to ensure accurate tracking, absolute compliance, and maximized runway for your business in Myanmar.
+      </p>
+      <div class="pt-4 flex flex-wrap justify-center gap-4">
+        <a href="#contact" class="px-8 py-4 bg-primary text-background hover:bg-primary/90 text-sm font-bold rounded-xl btn-tactile transition-all shadow-xl shadow-primary/15 flex items-center gap-2">
+          Claim Your Free Finance Audit <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#solutions" class="px-8 py-4 bg-card border border-border text-white hover:bg-border/30 text-sm font-bold rounded-xl btn-tactile transition-all flex items-center gap-2">
+          Explore Financial Suites <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem vs Solution Section -->
+  <section id="problems" class="py-20 bg-background border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">The Cost of Financial Friction</h2>
+        <p class="text-slate-400">Messy ledger architectures, delayed invoice collections, and blind liquidity forecasting stall business growth.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Problems Column -->
+        <div class="glow-card bg-card/40 border border-red-500/10 rounded-2xl p-8 space-y-6">
+          <div class="flex items-center gap-3 text-red-400">
+            <div class="w-10 h-10 rounded-lg bg-red-500/10 flex items-center justify-center"><i data-lucide="trending-down" class="w-5 h-5"></i></div>
+            <h3 class="text-xl font-bold text-white">The Financial Friction</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Disorganized Ledger Discrepancies</h4>
+                <p class="text-xs text-slate-400 mt-1">Improperly configured Charts of Accounts lead to journal entry errors, messy tax reporting, and audit failures.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Leaking Accounts Receivable (AR)</h4>
+                <p class="text-xs text-slate-400 mt-1">Delayed invoicing and manual payment reminders stall customer collections, directly choking your operational cash flow.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="x-circle" class="w-5 h-5 text-red-500 shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Blind Liquidity & Cash Forecasting</h4>
+                <p class="text-xs text-slate-400 mt-1">Operating without forward-looking runway metrics leaves executive leadership blind to upcoming cash requirements.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solutions Column -->
+        <div class="glow-card bg-card/40 border border-primary/20 rounded-2xl p-8 space-y-6">
+          <div class="flex items-center gap-3 text-primary">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+            <h3 class="text-xl font-bold text-white">The Clean Accounting Solution</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Structured Accounting Infrastructure</h4>
+                <p class="text-xs text-slate-400 mt-1">We build robust Charts of Accounts and journal entry workflows to guarantee accurate ledger balance.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Optimized AP/AR Pipelines</h4>
+                <p class="text-xs text-slate-400 mt-1">We implement automated invoice term matching, due-date alerts, and collection reminders to maximize cash velocity.</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <i data-lucide="check" class="w-5 h-5 text-primary shrink-0 mt-0.5"></i>
+              <div>
+                <h4 class="font-bold text-slate-200 text-sm">Liquidity & Bank Reconciliation Engines</h4>
+                <p class="text-xs text-slate-400 mt-1">Real-time treasury tracking, bank reconciliation systems, and forward-looking runway forecasts keep your cash secure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid (Content from prompt) -->
+  <section id="solutions" class="py-20 bg-background/50 border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Our Services</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Robust Financial & Bookkeeping Solutions</h2>
+        <p class="text-slate-400">Custom fiscal architectures designed to keep your business compliant, liquid, and strategic.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- 1. Basic Accounting & Ledger Infrastructure -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="book-open" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Ledger Infrastructure</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              We design and configure clear fiscal structures to ensure accurate tracking, asset protection, and structural compliance from day one.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" alt="Accounting Infrastructure" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Chart of Accounts Architecture:</strong> Strategic modeling and categorization of corporate frameworks (Assets, Liabilities, Equity).</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Journal Entry Management:</strong> Deployment of structured journal workflows with systematic debit/credit validation rules.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Clean Ledgers</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 2. Operational Accounts Management (AP/AR) -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="file-spreadsheet" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">AP / AR Optimization</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Optimize your daily transaction processing pipelines to secure positive supplier relationships and rapid customer collections.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80" alt="AP AR Management" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Accounts Receivable (AR):</strong> End-to-end design of invoicing, payment term integrations, and automated reminders.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Accounts Payable (AP):</strong> Invoice matching, vendor bill tracking, and due-date warning systems to keep cash flows predictable.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Cash Velocity</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+
+        <!-- 3. Liquidity & Reconciliation Engines -->
+        <div class="glow-card bg-card border border-border rounded-2xl p-6 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <i data-lucide="line-chart" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Liquidity & Reconciliation</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Protect your liquid holdings with automated balancing checkpoints and forward-looking treasury systems.
+            </p>
+            <div class="aspect-[16/9] rounded-lg overflow-hidden border border-border/50 my-2">
+              <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=400&q=80" alt="Liquidity Systems" class="w-full h-full object-cover brightness-[0.8]">
+            </div>
+            <ul class="space-y-2 pt-2">
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Cash Flow Forecasting:</strong> Forward-looking cash metrics to monitor runway, operational buffers, and liquidity.</span>
+              </li>
+              <li class="flex items-start gap-2 text-xs text-slate-300">
+                <i data-lucide="check" class="w-4 h-4 text-primary shrink-0 mt-0.5"></i>
+                <span><strong>Treasury Verification:</strong> Setup of bank reconciliation systems linking bank balances directly with journals.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-border/50 mt-6 flex justify-between items-center">
+            <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Runway Security</span>
+            <a href="#contact" class="text-primary hover:text-white text-xs font-bold flex items-center gap-1 transition-all">Inquire <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Fractional Back-Office Accounting Retainer -->
+      <div class="mt-12 p-8 bg-card border border-border rounded-2xl grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-4 space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="pie-chart" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Fractional Back-Office Accounting</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Keep your financial tracking continuous, clean, and audit-ready every single month without maintaining a heavy internal finance department.
+          </p>
+        </div>
+        <div class="md:col-span-8 grid sm:grid-cols-3 gap-4">
+          <div class="p-4 bg-background/50 border border-border/50 rounded-xl">
+            <h4 class="text-xs font-bold text-primary mb-1">Bookkeeping & Journaling</h4>
+            <p class="text-[11px] text-slate-400">Monthly execution of standard bookkeeping, day-to-day journal entries, and validation checks.</p>
+          </div>
+          <div class="p-4 bg-background/50 border border-border/50 rounded-xl">
+            <h4 class="text-xs font-bold text-primary mb-1">Ledger & Treasury Updates</h4>
+            <p class="text-[11px] text-slate-400">Recurring monthly cash flow tracking, ledger updates, and dynamic bank balance reconciliations.</p>
+          </div>
+          <div class="p-4 bg-background/50 border border-border/50 rounded-xl">
+            <h4 class="text-xs font-bold text-primary mb-1">Executive Reporting</h4>
+            <p class="text-[11px] text-slate-400">Comprehensive delivery of monthly profit and loss (P&L) trends, balance sheets, and cash run-rate breakdowns.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI / Benefits Section -->
+  <section class="py-20 bg-background border-t border-border/30 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Strategic Impact</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">The Power of Clean Accounting</h2>
+        <p class="text-slate-400">How professional corporate accounting directly translates into business safety, runway clarity, and growth.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="shield" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Absolute Audit Readiness</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Standardizing ledger journal entries and Chart of Accounts ensures your business remains perfectly compliant with Myanmar tax and audit guidelines.
+          </p>
+        </div>
+
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="eye" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Clear Runway Visibility</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Forward-looking cash forecasting and monthly P&L digests provide leadership with total strategic visibility over business unit liquidity.
+          </p>
+        </div>
+
+        <div class="p-8 bg-card/40 border border-border/50 rounded-2xl space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+            <i data-lucide="coins" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Optimized Working Capital</h3>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            By optimizing accounts payable (AP) and accounts receivable (AR) workflows, we secure positive vendor relations and rapid customer collections.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Contact Form / Pitch CTA -->
+  <section id="contact" class="py-20 bg-background/50 border-t border-border/30 relative">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div class="text-primary text-xs font-extrabold tracking-wider uppercase">Let's Secure Your Cash Flow</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">Claim Your Free Corporate Finance Audit</h2>
+        <p class="text-slate-400">Our financial architects will review your chart of accounts, AP/AR workflows, and back-office pipelines at zero cost.</p>
+      </div>
+
+      <div class="glow-card bg-card border border-border rounded-2xl p-8 md:p-12">
+        <form id="finance-contact-form" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Your Name</label>
+              <input type="text" id="name" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., U Mg Mg">
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Corporate Email</label>
+              <input type="email" id="email" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., company@domain.com">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Phone Number / Telegram</label>
+              <input type="text" id="phone" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all" placeholder="E.g., +95 9 ...">
+            </div>
+            <div class="space-y-2">
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Finance Focus</label>
+              <select id="focus" class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all">
+                <option value="infrastructure">Basic Accounting & Ledger Infrastructure</option>
+                <option value="apar">Operational Accounts Management (AP/AR)</option>
+                <option value="liquidity">Liquidity & Reconciliation Engines</option>
+                <option value="fractional">Fractional Back-Office Bookkeeping Retainer</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400">Describe Your Financial Bottleneck</label>
+            <textarea id="message" rows="4" required class="w-full px-4 py-3 bg-background border border-border rounded-xl focus:outline-none focus:border-primary text-white text-sm transition-all resize-none" placeholder="What ledger issues, collection delays, or treasury reconciliation gaps are you currently facing?"></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-primary text-background hover:bg-primary/90 text-sm font-extrabold rounded-xl btn-tactile transition-all shadow-xl shadow-primary/10 flex items-center justify-center gap-2">
+            Submit Audit Request <i data-lucide="send" class="w-4 h-4"></i>
+          </button>
+        </form>
+        <div id="form-success" class="hidden text-center py-8 space-y-4">
+          <div class="w-16 h-16 bg-primary/10 border border-primary/20 text-primary rounded-full flex items-center justify-center mx-auto">
+            <i data-lucide="check-circle-2" class="w-8 h-8"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white">Audit Request Received!</h3>
+          <p class="text-sm text-slate-300 max-w-md mx-auto">
+            Our Financial Architects will review your ledger bottlenecks and contact you within 24 hours to schedule your free consultation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-background border-t border-border/30">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center font-bold text-primary">TK</div>
+        <span class="text-sm text-slate-400">© 2026 TechKhit Myanmar. All Rights Reserved.</span>
+      </div>
+      <div class="flex gap-6 text-xs text-slate-400">
+        <a href="index.html" class="hover:text-primary transition-all">Home</a>
+        <a href="index.html#about" class="hover:text-primary transition-all">About Us</a>
+        <a href="index.html#services" class="hover:text-primary transition-all">Services</a>
+        <a href="index.html#portfolio" class="hover:text-primary transition-all">Portfolio</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Script for Form and Icons -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Handle Form Submission
+    const form = document.getElementById('finance-contact-form');
+    const successDiv = document.getElementById('form-success');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Processing Request...';
+      lucide.createIcons();
+
+      setTimeout(() => {
+        form.classList.add('hidden');
+        successDiv.classList.remove('hidden');
+        window.scrollTo({
+          top: document.getElementById('contact').offsetTop + 100,
+          behavior: 'smooth'
+        });
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
